@@ -8,17 +8,18 @@ namespace PizzaStore.Domain.Models
   {
     // STATE
     //fields
-    private string _imageUrl = "";
-    private double _diameter = 0;
-    //public string Size = "";
-    //public string Crust = "";
-    public List<string> _toppings = new List<string>();
+    private readonly string _imageUrl = "https://some-url";
+    private const double _diameter = 0; //one copy throughout workspace, can never change
+    private static string _name = "pizza"; //one copy, can change
+    private List<string> _toppings = new List<string>();
+
     //properties
-    public string Size {get;} //remove set = can never be changed
-    public string Crust {get;}
+    public string Size { get; set; } //removing set = can never be changed once constructed
+    public string Crust { get; set; }
     public List<string> Toppings
     {
-      get{
+      get
+      {
         return _toppings;
       }
     }
@@ -43,16 +44,16 @@ namespace PizzaStore.Domain.Models
     */
 
     public override string ToString()
-     {
-       var sb = new StringBuilder();
+    {
+      var sb = new StringBuilder();
 
-       foreach(var t in Toppings)
-       {
-         sb.Append(t);
-       }
+      foreach (var t in Toppings)
+      {
+        sb.Append(t);
+      }
 
       return $"{Crust} \n{Size} \n{sb}";
-     }
+    }
     //constructors
 
     public Pizza(string size, string crust, List<string> toppings)
@@ -60,6 +61,12 @@ namespace PizzaStore.Domain.Models
       Size = size;
       Crust = crust;
       Toppings.AddRange(toppings);
+    }
+
+    public Pizza()
+    {
+      Size = "";
+      Crust = ""; //Intentionally empty, overloading
     }
     //finalizers or destructors
   }
