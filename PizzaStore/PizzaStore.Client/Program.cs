@@ -18,6 +18,7 @@ namespace PizzaStore.Client
       Console.WriteLine("It's Pizza time!");
       Console.WriteLine();
 
+      /*
       // array
       //1-d
       string[] cart1 = { "", "", "" }; //initial values
@@ -28,7 +29,7 @@ namespace PizzaStore.Client
       // List<string> cart4 = new List{"","",""}; // initial values
       List<string> cart5 = new List<string>(); // default values
       List<Pizza> cart6 = new List<Pizza>();
-
+      */
       //Menu2(cart6);
 
       var startup = new PizzaStore.Client.Starter();
